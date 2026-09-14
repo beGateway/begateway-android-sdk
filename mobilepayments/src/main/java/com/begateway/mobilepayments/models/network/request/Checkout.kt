@@ -56,7 +56,12 @@ class Settings(
 
 class SaveCardPolicy(
     @SerializedName("customer_contract") val customerContract: Boolean?,
-)
+    @SerializedName("display") val display: Boolean? = null,
+) {
+    // The API defaults display to true when the toggle policy is present.
+    internal val isDisplayEnabled: Boolean
+        get() = display ?: true
+}
 
 class CustomerFields(
     @SerializedName("read_only") val readOnly: Array<ReadOnly>? = null,

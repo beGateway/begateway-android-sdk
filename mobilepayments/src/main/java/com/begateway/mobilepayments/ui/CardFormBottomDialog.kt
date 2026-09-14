@@ -426,7 +426,7 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding?.run {
             val instance = PaymentSdk.instance
             val saveCardFieldVisible =
-                instance.paymentData?.checkout?.settings?.saveCardPolicy?.customerContract == true
+                instance.paymentData?.checkout?.settings?.saveCardPolicy?.isDisplayEnabled == true
             mcbSaveCard.isVisible = saveCardFieldVisible
             if (saveCardFieldVisible) {
                 mcbSaveCard.setOnCheckedChangeListener { _, isChecked ->
